@@ -1,0 +1,21 @@
+body{
+    font-size:2em;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align:center;
+    
+}
+.buttons{
+    border:2px solid #945;
+    margin-bottom:0.3em;
+    padding:0.5em;
+color:#937;
+font-size:1.5em;
+}
+.buttons:hover{
+    
+    background:#585;
+    font-size:1.2em;
+}
