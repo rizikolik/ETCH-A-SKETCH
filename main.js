@@ -28,7 +28,7 @@ function createCells(num) {
             cell.style.height = (15/ num) + "em";
             cell.style.border ="2px solid black";
             cell.addEventListener("mouseover", changeColor);
-            cell.addEventListener('touchstart', changeColor);
+            cell.addEventListener('onscroll', changeColor);
             line.appendChild(cell);
 
         }
@@ -61,6 +61,7 @@ function clearCells() {
     for(let i=0;i<numberofrows.length;i++){
         numberofrows[i].style.background="white";
     }
+    
 }
 
 ///CREATE NEW GRİD  AS USER DEMAND
