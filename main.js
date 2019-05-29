@@ -2,10 +2,13 @@ const container    = document.getElementById("containerid");
 const newcell      = document.getElementById("new");
 const clear        = document.getElementById("clear");
 let beginningCells =16;
-let red="";
-let blue="";
-let green="";
-let rgb=("");
+let r="";
+let g="";
+let b="";
+let rgb="";
+
+
+
 
 clear.addEventListener("click", clearCells);
 newcell.addEventListener("click", createNewCells);
@@ -21,8 +24,8 @@ function createCells(num) {
         for (let j = 0; j < num; j++) {
             let cell = document.createElement("div");
             cell.classList.add("cells");
-            cell.style.width = (460 / num)+ "px";
-            cell.style.height = (460 / num) + "px";
+            cell.style.width = (29 / num)+ "em";
+            cell.style.height = (29 / num) + "em";
             cell.style.border ="2px solid black";
             cell.addEventListener("mouseover", changeColor);
             line.appendChild(cell);
@@ -34,8 +37,16 @@ function createCells(num) {
     }
 }
 
+
+
 function changeColor(){
-    this.style.background="black";
+    r=Math.floor(Math.random()*256);
+    g=Math.floor(Math.random()*256);
+    b=Math.floor(Math.random()*256);
+    rgb=(r+","+g+","+b)
+    
+    //console.log("rgb("+rgb+")"); //I used this for test
+    this.style.background="rgb("+rgb+")";
 }
 
 function clearCells() {
@@ -47,7 +58,7 @@ function clearCells() {
 
 ///CREATE NEW GRİD  AS USER DEMAND
 function createNewCells(){
-    dimension=window.prompt("please enter a number between 1-64",beginningCells);
+ let   dimension=window.prompt("please enter a number between 1-64",beginningCells);
     if(isNaN(dimension)){
         while(container.firstChild){
             container.removeChild(container.firstChild);
