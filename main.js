@@ -24,10 +24,11 @@ function createCells(num) {
         for (let j = 0; j < num; j++) {
             let cell = document.createElement("div");
             cell.classList.add("cells");
-            cell.style.width = (29 / num)+ "em";
-            cell.style.height = (29 / num) + "em";
+            cell.style.width = (15/ num)+ "em";
+            cell.style.height = (15/ num) + "em";
             cell.style.border ="2px solid black";
             cell.addEventListener("mouseover", changeColor);
+            cell.addEventListener('touchstart', changeColor);
             line.appendChild(cell);
 
         }
@@ -39,14 +40,20 @@ function createCells(num) {
 
 
 
-function changeColor(){
-    r=Math.floor(Math.random()*256);
+
+function changeColor(event){
+     event.preventDefault()
+    if(!this.classList.contains("colored")){
+        r=Math.floor(Math.random()*256);
     g=Math.floor(Math.random()*256);
     b=Math.floor(Math.random()*256);
     rgb=(r+","+g+","+b)
     
     //console.log("rgb("+rgb+")"); //I used this for test
     this.style.background="rgb("+rgb+")";
+    this.classList.add("colored");
+    }
+    
 }
 
 function clearCells() {
