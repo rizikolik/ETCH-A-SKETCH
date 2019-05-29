@@ -28,7 +28,7 @@ function createCells(num) {
             cell.style.height = (15/ num) + "em";
             cell.style.border ="2px solid black";
             cell.addEventListener("mouseover", changeColor);
-            cell.addEventListener('onscroll', changeColor);
+            cell.addEventListener('touchmove', changeColor);
             line.appendChild(cell);
 
         }
